@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, asset, Pano, View, Text, StyleSheet, Box, VideoPano, Sound } from 'react-vr';
+import { AppRegistry, asset, Pano, View, Text, StyleSheet, Box, VideoPano, Sound, VrButton } from 'react-vr';
 import axios from 'axios';
 
 import BouncingText from './components/bouncingText';
@@ -174,6 +174,13 @@ class Basics extends Component {
           <Text style={styles.currentText}>{this.state.keyboardText}</Text>
           <Text style={styles.historyText}>{this.state.messageText}</Text>
         </View>
+          <View>
+          {this.state.showTracker === true ?
+          <Sound source={asset('woot.wav')} />
+          :
+          <VrButton />
+          }
+          </View>
         <TopplingList toppings={this.state.toppings} submitOrder={this.placeOrder.bind(this)}/>
         {this.state.showTracker === true ? <Timer showTracker={this.state.showTracker}/> : null}
       </View>
