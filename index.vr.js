@@ -173,14 +173,14 @@ class Basics extends Component {
         <View>
           <Text style={styles.currentText}>{this.state.keyboardText}</Text>
           <Text style={styles.historyText}>{this.state.messageText}</Text>
+        </View>
           <View>
-          {this.state.context === "completed" ?
+          {this.state.showTracker === true ?
           <Sound source={asset('woot.wav')} />
           :
           <VrButton />
           }
           </View>
-        </View>
         <TopplingList toppings={this.state.toppings} submitOrder={this.placeOrder.bind(this)}/>
         {this.state.showTracker === true ? <Timer showTracker={this.state.showTracker}/> : null}
       </View>
